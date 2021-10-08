@@ -44,7 +44,6 @@ let i = 0;
 let iMemory = 0;
 updateContent(i);
 
-
 // Update DOM based on passed index value
 function updateContent(idx) {
   i = idx;
@@ -81,7 +80,6 @@ const randReview = (reviewsArr) => {
   updateContent(i);
 };
 
-
 // Event Listeners
 nextBtn.addEventListener('click', () => {
   nextReview(reviews);
@@ -92,6 +90,8 @@ randBtn.addEventListener('click', () => {
 });
 navDots.forEach((dot, idx) => {
   dot.addEventListener('click', () => {
-    updateContent(idx);
+    if (!dot.classList.contains('active')) {
+      updateContent(idx);
+    }
   });
 });
